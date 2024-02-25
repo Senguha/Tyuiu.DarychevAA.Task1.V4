@@ -30,21 +30,21 @@ namespace Tyuiu.DarychevAA.Task1.V4
             books.Columns.Add(anotationColumn);
 
 
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
-            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
+            books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
 
 
             InitializeComponent();
