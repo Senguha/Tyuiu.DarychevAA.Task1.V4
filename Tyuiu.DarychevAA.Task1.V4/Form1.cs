@@ -56,6 +56,11 @@ namespace Tyuiu.DarychevAA.Task1.V4
             for (int i = 0; i < System.IO.File.ReadAllLines("DB.csv").Length; i++)
             {
                 line = reader.ReadLine().Split('|');
+                for (int j = 0; j < 6; j++)
+                {
+                    if (line[j] == "")
+                        line[j] = null;
+                }
                 books.Rows.Add(new object[] {null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]),Convert.ToBoolean(line[5]), line[6] });
             }
             reader.Close();

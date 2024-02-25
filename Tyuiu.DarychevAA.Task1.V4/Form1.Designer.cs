@@ -39,8 +39,6 @@
             // 
             // dataGridOutTable_DAA
             // 
-            this.dataGridOutTable_DAA.AllowUserToAddRows = false;
-            this.dataGridOutTable_DAA.AllowUserToDeleteRows = false;
             this.dataGridOutTable_DAA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
