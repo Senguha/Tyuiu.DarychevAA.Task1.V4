@@ -5,7 +5,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
 {
     public partial class MainForm_DAA : Form
     {
-        DataTable books = new DataTable("Books");
+        public DataTable books = new DataTable("Books");
         public MainForm_DAA()
         {
             DataColumn idColumn = new DataColumn("Id", Type.GetType("System.Int32"));
@@ -102,6 +102,28 @@ namespace Tyuiu.DarychevAA.Task1.V4
         private void Column_KeyPressNone(object sender, KeyPressEventArgs e)
         {
                 e.Handled = true;
+        }
+
+        private void textBoxSearch_DAA_TextChanged(object sender, EventArgs e)
+        {
+            books.DefaultView.RowFilter = $"Name LIKE '%{textBoxSearch_DAA.Text}%' OR Author LIKE '%{textBoxSearch_DAA.Text}%'";
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            FormFilter_DAA f1 = new FormFilter_DAA();
+            f1.Owner= this;
+            f1.ShowDialog();
+        }
+
+        private void toolStripButtonRefreshTable_DAA_Click(object sender, EventArgs e)
+        {
+            books.DefaultView.RowFilter = "";
         }
     }
 }
