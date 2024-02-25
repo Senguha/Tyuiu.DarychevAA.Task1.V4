@@ -8,7 +8,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
         static void Main()
         {        
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MainForm_DAA());
         }
     }
 }

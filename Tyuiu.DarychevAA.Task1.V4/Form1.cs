@@ -2,12 +2,11 @@ using System.Data;
 
 namespace Tyuiu.DarychevAA.Task1.V4
 {
-    public partial class Form1 : Form
+    public partial class MainForm_DAA : Form
     {
-        public Form1()
+        DataTable books = new DataTable("Books");
+        public MainForm_DAA()
         {
-            DataTable books = new DataTable("Books");
-
             DataColumn idColumn = new DataColumn("Id", Type.GetType("System.Int32"));
             idColumn.Unique = true;
             idColumn.AllowDBNull = false;
@@ -37,9 +36,33 @@ namespace Tyuiu.DarychevAA.Task1.V4
             books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
             books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то" });
             books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+            books.Rows.Add(new object[] { null, "Антонов А.А", "Книжка", 2013, 20.15, true, "Книжка о чём-то аааааааааааааааааааааааааааааааааа" });
+
 
             InitializeComponent();
-            dataGrid.DataSource = books;
+            dataGridOutTable_DAA.DataSource = books;
+        }
+
+        private void toolStripMenuItemSaveFile_DAA_Click(object sender, EventArgs e)
+        {
+            StreamWriter writer = new StreamWriter("DB.csv");
+            foreach (DataRow r in books.Rows)
+            {
+                foreach (var cell in r.ItemArray)
+                {
+                    writer.Write(cell + "|");
+                }
+                writer.WriteLine();
+            }
+            writer.Close();
         }
     }
 }
