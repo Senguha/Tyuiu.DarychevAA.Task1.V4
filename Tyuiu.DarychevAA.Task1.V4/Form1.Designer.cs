@@ -32,7 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSaveFile_DAA = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemOpenFile_DAA = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOutTable_DAA)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +72,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemSaveFile_DAA,
-            this.loadToolStripMenuItem});
+            this.toolStripMenuItemOpenFile_DAA});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -84,11 +84,12 @@
             this.toolStripMenuItemSaveFile_DAA.Text = "Save";
             this.toolStripMenuItemSaveFile_DAA.Click += new System.EventHandler(this.toolStripMenuItemSaveFile_DAA_Click);
             // 
-            // loadToolStripMenuItem
+            // toolStripMenuItemOpenFile_DAA
             // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadToolStripMenuItem.Text = "Load";
+            this.toolStripMenuItemOpenFile_DAA.Name = "toolStripMenuItemOpenFile_DAA";
+            this.toolStripMenuItemOpenFile_DAA.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemOpenFile_DAA.Text = "Open";
+            this.toolStripMenuItemOpenFile_DAA.Click += new System.EventHandler(this.toolStripMenuItemOpenFile_DAA_Click);
             // 
             // MainForm_DAA
             // 
@@ -115,6 +116,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItemSaveFile_DAA;
-        private ToolStripMenuItem loadToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItemOpenFile_DAA;
     }
 }
