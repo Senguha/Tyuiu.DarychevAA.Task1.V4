@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\filter_icon-icons.com_64590.png" />
+    <None Remove="Resources\twocirclingarrows1_120592.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\filter_icon-icons.com_64590.png" />
+    <EmbeddedResource Include="Resources\twocirclingarrows1_120592.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm_DAA));
             this.dataGridOutTable_DAA = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,21 +117,21 @@
             // toolStripButtonFilter_DAA
             // 
             this.toolStripButtonFilter_DAA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFilter_DAA.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFilter_DAA.Image")));
+            this.toolStripButtonFilter_DAA.Image = global::Tyuiu.DarychevAA.Task1.V4.Properties.Resources.filter_icon_icons_com_64590;
             this.toolStripButtonFilter_DAA.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFilter_DAA.Name = "toolStripButtonFilter_DAA";
             this.toolStripButtonFilter_DAA.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFilter_DAA.Text = "toolStripButton1";
+            this.toolStripButtonFilter_DAA.Text = "Filter";
             this.toolStripButtonFilter_DAA.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButtonRefreshTable_DAA
             // 
             this.toolStripButtonRefreshTable_DAA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRefreshTable_DAA.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRefreshTable_DAA.Image")));
+            this.toolStripButtonRefreshTable_DAA.Image = global::Tyuiu.DarychevAA.Task1.V4.Properties.Resources.twocirclingarrows1_120592;
             this.toolStripButtonRefreshTable_DAA.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRefreshTable_DAA.Name = "toolStripButtonRefreshTable_DAA";
             this.toolStripButtonRefreshTable_DAA.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonRefreshTable_DAA.Text = "toolStripButton1";
+            this.toolStripButtonRefreshTable_DAA.Text = "Refresh";
             this.toolStripButtonRefreshTable_DAA.Click += new System.EventHandler(this.toolStripButtonRefreshTable_DAA_Click);
             // 
             // MainForm_DAA
