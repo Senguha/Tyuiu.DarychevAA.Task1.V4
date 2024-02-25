@@ -59,5 +59,25 @@ namespace Tyuiu.DarychevAA.Task1.V4.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filter_icon_icons_com_64590 {
+            get {
+                object obj = ResourceManager.GetObject("filter_icon_icons_com_64590", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap twocirclingarrows1_120592 {
+            get {
+                object obj = ResourceManager.GetObject("twocirclingarrows1_120592", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
