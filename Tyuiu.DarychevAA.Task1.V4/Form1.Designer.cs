@@ -50,13 +50,13 @@
             this.dataGridOutTable_DAA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridOutTable_DAA.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridOutTable_DAA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridOutTable_DAA.Location = new System.Drawing.Point(9, 50);
+            this.dataGridOutTable_DAA.Location = new System.Drawing.Point(0, 24);
             this.dataGridOutTable_DAA.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridOutTable_DAA.Name = "dataGridOutTable_DAA";
-            this.dataGridOutTable_DAA.ReadOnly = true;
             this.dataGridOutTable_DAA.RowTemplate.Height = 25;
-            this.dataGridOutTable_DAA.Size = new System.Drawing.Size(911, 454);
+            this.dataGridOutTable_DAA.Size = new System.Drawing.Size(929, 491);
             this.dataGridOutTable_DAA.TabIndex = 0;
+            this.dataGridOutTable_DAA.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridOutTable_DAA_EditingControlShowing);
             // 
             // menuStrip1
             // 
@@ -80,14 +80,14 @@
             // toolStripMenuItemSaveFile_DAA
             // 
             this.toolStripMenuItemSaveFile_DAA.Name = "toolStripMenuItemSaveFile_DAA";
-            this.toolStripMenuItemSaveFile_DAA.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemSaveFile_DAA.Size = new System.Drawing.Size(103, 22);
             this.toolStripMenuItemSaveFile_DAA.Text = "Save";
             this.toolStripMenuItemSaveFile_DAA.Click += new System.EventHandler(this.toolStripMenuItemSaveFile_DAA_Click);
             // 
             // toolStripMenuItemOpenFile_DAA
             // 
             this.toolStripMenuItemOpenFile_DAA.Name = "toolStripMenuItemOpenFile_DAA";
-            this.toolStripMenuItemOpenFile_DAA.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemOpenFile_DAA.Size = new System.Drawing.Size(103, 22);
             this.toolStripMenuItemOpenFile_DAA.Text = "Open";
             this.toolStripMenuItemOpenFile_DAA.Click += new System.EventHandler(this.toolStripMenuItemOpenFile_DAA_Click);
             // 

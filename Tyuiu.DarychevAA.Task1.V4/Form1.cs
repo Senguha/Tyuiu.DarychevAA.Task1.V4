@@ -1,4 +1,5 @@
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace Tyuiu.DarychevAA.Task1.V4
 {
@@ -29,24 +30,6 @@ namespace Tyuiu.DarychevAA.Task1.V4
             books.Columns.Add(publisherColumn);
             books.Columns.Add(anotationColumn);
 
-
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-          // books.Rows.Add(new object[] { null, "Antonov A.A", "A Book", 2013, 20.15, true, "A book about smth blah blah blah" });
-
-
             InitializeComponent();
             dataGridOutTable_DAA.DataSource = books;
         }
@@ -76,6 +59,44 @@ namespace Tyuiu.DarychevAA.Task1.V4
                 books.Rows.Add(new object[] {null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]),Convert.ToBoolean(line[5]), line[6] });
             }
             reader.Close();
+        }
+
+        private void dataGridOutTable_DAA_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPressInt);
+            if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 3)
+            {
+                TextBox textBox = e.Control as TextBox;
+                if (textBox != null)
+                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressInt);
+            }
+            if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 4)
+            {
+                TextBox textBox = e.Control as TextBox;
+                if (textBox != null)
+                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressDouble);
+            }
+            if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 0)
+            {
+                TextBox textBox = e.Control as TextBox;
+                if (textBox != null)
+                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressNone);
+            }
+
+        }
+        private void Column_KeyPressInt(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)&&!char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+        private void Column_KeyPressDouble(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)&&!(e.KeyChar==','))
+                e.Handled = true;
+        }
+        private void Column_KeyPressNone(object sender, KeyPressEventArgs e)
+        {
+                e.Handled = true;
         }
     }
 }
