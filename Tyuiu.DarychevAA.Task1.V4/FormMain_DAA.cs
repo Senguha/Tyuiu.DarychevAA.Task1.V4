@@ -36,7 +36,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
 
         private void toolStripMenuItemSaveFile_DAA_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("DB.csv");
+            StreamWriter writer = new StreamWriter("Resources\\DB.csv");
             foreach (DataRow r in books.Rows)
             {
                 foreach (var cell in r.ItemArray)
@@ -51,9 +51,9 @@ namespace Tyuiu.DarychevAA.Task1.V4
         private void toolStripMenuItemOpenFile_DAA_Click(object sender, EventArgs e)
         {
             books.Rows.Clear();
-            StreamReader reader = new StreamReader("DB.csv");
+            StreamReader reader = new StreamReader("Resources\\DB.csv");
             string[] line;
-            for (int i = 0; i < System.IO.File.ReadAllLines("DB.csv").Length; i++)
+            for (int i = 0; i < System.IO.File.ReadAllLines("Resources\\DB.csv").Length; i++)
             {
                 line = reader.ReadLine().Split('|');
                 for (int j = 0; j < 6; j++)
@@ -106,14 +106,8 @@ namespace Tyuiu.DarychevAA.Task1.V4
 
         private void textBoxSearch_DAA_TextChanged(object sender, EventArgs e)
         {
-            books.DefaultView.RowFilter = $"Name LIKE '%{textBoxSearch_DAA.Text}%' OR Author LIKE '%{textBoxSearch_DAA.Text}%'";
+            //books.DefaultView.RowFilter = $"Name LIKE '%{textBoxSearch_DAA.Text}%' OR Author LIKE '%{textBoxSearch_DAA.Text}%'";
         }
-
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             FormFilter_DAA f1 = new FormFilter_DAA();
@@ -124,6 +118,11 @@ namespace Tyuiu.DarychevAA.Task1.V4
         private void toolStripButtonRefreshTable_DAA_Click(object sender, EventArgs e)
         {
             books.DefaultView.RowFilter = "";
+        }
+
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            books.DefaultView.RowFilter = $"Name LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
         }
     }
 }
