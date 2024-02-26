@@ -32,20 +32,8 @@ namespace Tyuiu.DarychevAA.Task1.V4
 
             InitializeComponent();
             dataGridOutTable_DAA.DataSource = books;
-        }
-
-        private void toolStripMenuItemSaveFile_DAA_Click(object sender, EventArgs e)
-        {
-            StreamWriter writer = new StreamWriter("Resources\\DB.csv");
-            foreach (DataRow r in books.Rows)
-            {
-                foreach (var cell in r.ItemArray)
-                {
-                    writer.Write(cell + "|");
-                }
-                writer.WriteLine();
-            }
-            writer.Close();
+            openFileDialogOpenTable_DAA.InitialDirectory = System.IO.Path.Combine(Application.ExecutablePath, "Resources");
+            saveFileDialogSaveTable_DAA.InitialDirectory = System.IO.Path.Combine(Application.ExecutablePath, "Resources");
         }
 
         private void toolStripMenuItemOpenFile_DAA_Click(object sender, EventArgs e)
@@ -61,7 +49,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
                     if (line[j] == "")
                         line[j] = null;
                 }
-                books.Rows.Add(new object[] {null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]),Convert.ToBoolean(line[5]), line[6] });
+                books.Rows.Add(new object[] { null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
             }
             reader.Close();
         }
@@ -91,22 +79,22 @@ namespace Tyuiu.DarychevAA.Task1.V4
         }
         private void Column_KeyPressInt(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar)&&!char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
         private void Column_KeyPressDouble(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)&&!(e.KeyChar==','))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar == ','))
                 e.Handled = true;
         }
         private void Column_KeyPressNone(object sender, KeyPressEventArgs e)
         {
-                e.Handled = true;
+            e.Handled = true;
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             FormFilter_DAA f1 = new FormFilter_DAA();
-            f1.Owner= this;
+            f1.Owner = this;
             f1.ShowDialog();
         }
 
@@ -125,30 +113,75 @@ namespace Tyuiu.DarychevAA.Task1.V4
             {
                 return;
             }
-            
+
             double sumTotal = 0;
             int selectedCellsTotal = dataGridOutTable_DAA.SelectedRows.Count;
 
-            for (int i = 0;i < selectedCellsTotal; i++)
+            for (int i = 0; i < selectedCellsTotal; i++)
             {
                 if (dataGridOutTable_DAA.SelectedRows[i].Cells["Price"].Value != null)
                     if (dataGridOutTable_DAA.SelectedRows[i].Cells["Price"].Value.ToString().Length != 0)
                         sumTotal += double.Parse(dataGridOutTable_DAA.SelectedRows[i].Cells["Price"].Value.ToString());
             }
-            
+
             double maxPrice = dataGridOutTable_DAA.SelectedRows.Cast<DataGridViewRow>().Max(x => Convert.ToDouble(x.Cells["Price"].Value));
             double minPrice = dataGridOutTable_DAA.SelectedRows.Cast<DataGridViewRow>().Min(x => Convert.ToDouble(x.Cells["Price"].Value));
-            
-            toolStripStatusLabelSumPrice_DAA.Text="Price Sum: " +Math.Round(sumTotal,2).ToString();
-            toolStripStatusLabelCountRows_DAA.Text="Count: " + selectedCellsTotal.ToString();
-            toolStripStatusLabelAvgPrice_DAA.Text="Price Avg: "+Math.Round((sumTotal/ selectedCellsTotal),2).ToString();
-            toolStripStatusLabelMaxPrice_DAA.Text= "Price Max: "+maxPrice.ToString();
+
+            toolStripStatusLabelSumPrice_DAA.Text = "Price Sum: " + Math.Round(sumTotal, 2).ToString();
+            toolStripStatusLabelCountRows_DAA.Text = "Count: " + selectedCellsTotal.ToString();
+            toolStripStatusLabelAvgPrice_DAA.Text = "Price Avg: " + Math.Round((sumTotal / selectedCellsTotal), 2).ToString();
+            toolStripStatusLabelMaxPrice_DAA.Text = "Price Max: " + maxPrice.ToString();
             toolStripStatusLabelMinPrice_DAA.Text = "Price Min: " + minPrice.ToString();
         }
 
         private void dataGridOutTable_DAA_SelectionChanged(object sender, EventArgs e)
         {
             UpdateStatusStripText();
+        }
+
+        private void toolStripButtonShowCharts_Click(object sender, EventArgs e)
+        {
+            FormCharts_DAA fc = new FormCharts_DAA();
+            fc.Owner = this;
+            fc.ShowDialog();
+        }
+
+        private void toolStripButtonSave_DAA_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialogSaveTable_DAA.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = saveFileDialogSaveTable_DAA.FileName;
+            StreamWriter writer = new StreamWriter(filename);
+            foreach (DataRow r in books.Rows)
+            {
+                foreach (var cell in r.ItemArray)
+                {
+                    writer.Write(cell + "|");
+                }
+                writer.WriteLine();
+            }
+            writer.Close();
+        }
+
+        private void toolStripButtonOpenFile_DAA_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogOpenTable_DAA.ShowDialog() == DialogResult.Cancel)
+                return;
+            books.Rows.Clear();
+            string filename = openFileDialogOpenTable_DAA.FileName;
+            StreamReader reader = new StreamReader(filename);
+            string[] line;
+            for (int i = 0; i < System.IO.File.ReadAllLines(filename).Length; i++)
+            {
+                line = reader.ReadLine().Split('|');
+                for (int j = 0; j < 6; j++)
+                {
+                    if (line[j] == "")
+                        line[j] = null;
+                }
+                books.Rows.Add(new object[] { null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
+            }
+            reader.Close();
         }
     }
 }
