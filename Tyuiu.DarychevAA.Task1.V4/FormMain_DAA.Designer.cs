@@ -63,7 +63,7 @@
             dataGridOutTable_DAA.Margin = new Padding(0);
             dataGridOutTable_DAA.Name = "dataGridOutTable_DAA";
             dataGridOutTable_DAA.RowTemplate.Height = 25;
-            dataGridOutTable_DAA.Size = new Size(929, 490);
+            dataGridOutTable_DAA.Size = new Size(929, 466);
             dataGridOutTable_DAA.TabIndex = 0;
             dataGridOutTable_DAA.EditingControlShowing += dataGridOutTable_DAA_EditingControlShowing;
             dataGridOutTable_DAA.SelectionChanged += dataGridOutTable_DAA_SelectionChanged;

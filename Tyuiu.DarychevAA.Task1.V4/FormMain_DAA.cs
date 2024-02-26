@@ -12,11 +12,11 @@ namespace Tyuiu.DarychevAA.Task1.V4
             idColumn.Unique = true;
             idColumn.AllowDBNull = false;
             idColumn.AutoIncrement = true;
-            idColumn.AutoIncrementSeed = 1;
+            idColumn.AutoIncrementSeed = 0;
             idColumn.AutoIncrementStep = 1;
 
             DataColumn authorColumn = new DataColumn("Author", typeof(string));
-            DataColumn nameColumn = new DataColumn("Name", typeof(string));
+            DataColumn nameColumn = new DataColumn("Title", typeof(string));
             DataColumn yearColumn = new DataColumn("Year", typeof(int));
             DataColumn priceColumn = new DataColumn("Price", typeof(double));
             DataColumn publisherColumn = new DataColumn("IsNewPublisher", typeof(bool));
@@ -105,7 +105,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
 
         private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
         {
-            books.DefaultView.RowFilter = $"Name LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
+            books.DefaultView.RowFilter = $"Title LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
         }
         private void UpdateStatusStripText()
         {
@@ -179,7 +179,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
                     if (line[j] == "")
                         line[j] = null;
                 }
-                books.Rows.Add(new object[] { null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
+                books.Rows.Add(new object[] { Convert.ToInt32(line[0]), line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
             }
             reader.Close();
         }
