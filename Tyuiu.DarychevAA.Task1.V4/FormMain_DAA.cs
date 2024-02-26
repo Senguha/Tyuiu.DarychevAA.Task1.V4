@@ -103,11 +103,6 @@ namespace Tyuiu.DarychevAA.Task1.V4
         {
                 e.Handled = true;
         }
-
-        private void textBoxSearch_DAA_TextChanged(object sender, EventArgs e)
-        {
-            //books.DefaultView.RowFilter = $"Name LIKE '%{textBoxSearch_DAA.Text}%' OR Author LIKE '%{textBoxSearch_DAA.Text}%'";
-        }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             FormFilter_DAA f1 = new FormFilter_DAA();
@@ -123,6 +118,37 @@ namespace Tyuiu.DarychevAA.Task1.V4
         private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
         {
             books.DefaultView.RowFilter = $"Name LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
+        }
+        private void UpdateStatusStripText()
+        {
+            if (dataGridOutTable_DAA.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            
+            double sumTotal = 0;
+            int selectedCellsTotal = dataGridOutTable_DAA.SelectedRows.Count;
+
+            for (int i = 0;i < selectedCellsTotal; i++)
+            {
+                if (dataGridOutTable_DAA.SelectedRows[i].Cells["Price"].Value != null)
+                    if (dataGridOutTable_DAA.SelectedRows[i].Cells["Price"].Value.ToString().Length != 0)
+                        sumTotal += double.Parse(dataGridOutTable_DAA.SelectedRows[i].Cells["Price"].Value.ToString());
+            }
+            
+            double maxPrice = dataGridOutTable_DAA.SelectedRows.Cast<DataGridViewRow>().Max(x => Convert.ToDouble(x.Cells["Price"].Value));
+            double minPrice = dataGridOutTable_DAA.SelectedRows.Cast<DataGridViewRow>().Min(x => Convert.ToDouble(x.Cells["Price"].Value));
+            
+            toolStripStatusLabelSumPrice_DAA.Text="Price Sum: " +Math.Round(sumTotal,2).ToString();
+            toolStripStatusLabelCountRows_DAA.Text="Count: " + selectedCellsTotal.ToString();
+            toolStripStatusLabelAvgPrice_DAA.Text="Price Avg: "+Math.Round((sumTotal/ selectedCellsTotal),2).ToString();
+            toolStripStatusLabelMaxPrice_DAA.Text= "Price Max: "+maxPrice.ToString();
+            toolStripStatusLabelMinPrice_DAA.Text = "Price Min: " + minPrice.ToString();
+        }
+
+        private void dataGridOutTable_DAA_SelectionChanged(object sender, EventArgs e)
+        {
+            UpdateStatusStripText();
         }
     }
 }

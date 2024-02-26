@@ -37,9 +37,16 @@
             this.toolStripButtonFilter_DAA = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefreshTable_DAA = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBoxSearch_DAA = new System.Windows.Forms.ToolStripTextBox();
+            this.statusStripDataInfo_DAA = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCountRows_DAA = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelSumPrice_DAA = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelAvgPrice_DAA = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelMinPrice_DAA = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelMaxPrice_DAA = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOutTable_DAA)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusStripDataInfo_DAA.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridOutTable_DAA
@@ -60,6 +67,7 @@
             this.dataGridOutTable_DAA.Size = new System.Drawing.Size(929, 466);
             this.dataGridOutTable_DAA.TabIndex = 0;
             this.dataGridOutTable_DAA.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridOutTable_DAA_EditingControlShowing);
+            this.dataGridOutTable_DAA.SelectionChanged += new System.EventHandler(this.dataGridOutTable_DAA_SelectionChanged);
             // 
             // menuStrip1
             // 
@@ -136,12 +144,57 @@
             this.toolStripTextBoxSearch_DAA.ToolTipText = "Поиск";
             this.toolStripTextBoxSearch_DAA.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
+            // statusStripDataInfo_DAA
+            // 
+            this.statusStripDataInfo_DAA.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCountRows_DAA,
+            this.toolStripStatusLabelSumPrice_DAA,
+            this.toolStripStatusLabelAvgPrice_DAA,
+            this.toolStripStatusLabelMinPrice_DAA,
+            this.toolStripStatusLabelMaxPrice_DAA});
+            this.statusStripDataInfo_DAA.Location = new System.Drawing.Point(0, 491);
+            this.statusStripDataInfo_DAA.Name = "statusStripDataInfo_DAA";
+            this.statusStripDataInfo_DAA.Size = new System.Drawing.Size(929, 22);
+            this.statusStripDataInfo_DAA.TabIndex = 4;
+            this.statusStripDataInfo_DAA.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCountRows_DAA
+            // 
+            this.toolStripStatusLabelCountRows_DAA.Name = "toolStripStatusLabelCountRows_DAA";
+            this.toolStripStatusLabelCountRows_DAA.Size = new System.Drawing.Size(46, 17);
+            this.toolStripStatusLabelCountRows_DAA.Text = "Count: ";
+            // 
+            // toolStripStatusLabelSumPrice_DAA
+            // 
+            this.toolStripStatusLabelSumPrice_DAA.Name = "toolStripStatusLabelSumPrice_DAA";
+            this.toolStripStatusLabelSumPrice_DAA.Size = new System.Drawing.Size(66, 17);
+            this.toolStripStatusLabelSumPrice_DAA.Text = "Price Sum: ";
+            // 
+            // toolStripStatusLabelAvgPrice_DAA
+            // 
+            this.toolStripStatusLabelAvgPrice_DAA.Name = "toolStripStatusLabelAvgPrice_DAA";
+            this.toolStripStatusLabelAvgPrice_DAA.Size = new System.Drawing.Size(63, 17);
+            this.toolStripStatusLabelAvgPrice_DAA.Text = "Price Avg: ";
+            // 
+            // toolStripStatusLabelMinPrice_DAA
+            // 
+            this.toolStripStatusLabelMinPrice_DAA.Name = "toolStripStatusLabelMinPrice_DAA";
+            this.toolStripStatusLabelMinPrice_DAA.Size = new System.Drawing.Size(63, 17);
+            this.toolStripStatusLabelMinPrice_DAA.Text = "Price Min: ";
+            // 
+            // toolStripStatusLabelMaxPrice_DAA
+            // 
+            this.toolStripStatusLabelMaxPrice_DAA.Name = "toolStripStatusLabelMaxPrice_DAA";
+            this.toolStripStatusLabelMaxPrice_DAA.Size = new System.Drawing.Size(62, 17);
+            this.toolStripStatusLabelMaxPrice_DAA.Text = "Price Max:";
+            // 
             // MainForm_DAA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(929, 513);
+            this.Controls.Add(this.statusStripDataInfo_DAA);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridOutTable_DAA);
             this.Controls.Add(this.menuStrip1);
@@ -153,6 +206,8 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStripDataInfo_DAA.ResumeLayout(false);
+            this.statusStripDataInfo_DAA.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +224,11 @@
         private ToolStripButton toolStripButtonFilter_DAA;
         private ToolStripButton toolStripButtonRefreshTable_DAA;
         private ToolStripTextBox toolStripTextBoxSearch_DAA;
+        private StatusStrip statusStripDataInfo_DAA;
+        private ToolStripStatusLabel toolStripStatusLabelCountRows_DAA;
+        private ToolStripStatusLabel toolStripStatusLabelSumPrice_DAA;
+        private ToolStripStatusLabel toolStripStatusLabelAvgPrice_DAA;
+        private ToolStripStatusLabel toolStripStatusLabelMinPrice_DAA;
+        private ToolStripStatusLabel toolStripStatusLabelMaxPrice_DAA;
     }
 }
