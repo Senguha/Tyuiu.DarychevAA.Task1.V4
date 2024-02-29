@@ -1,11 +1,15 @@
+using System;
 using System.Data;
+using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace Tyuiu.DarychevAA.Task1.V4
 {
     public partial class MainForm_DAA : Form
     {
         public DataTable books = new DataTable("Books");
+        public DataTable readers = new DataTable("Readers");
         public MainForm_DAA()
         {
             DataColumn idColumn = new DataColumn("Id", Type.GetType("System.Int32"));
@@ -30,52 +34,89 @@ namespace Tyuiu.DarychevAA.Task1.V4
             books.Columns.Add(publisherColumn);
             books.Columns.Add(anotationColumn);
 
+            DataColumn userIdColumn = new DataColumn("Id", typeof(int));
+            DataColumn userFullName = new DataColumn("Full name", typeof(string));
+            DataColumn userAddress = new DataColumn("Address", typeof(string));
+            DataColumn userPhoneNumber = new DataColumn("PhoneNumber", typeof(string));
+            DataColumn userBookID = new DataColumn("BookId", typeof(int));
+            DataColumn userDateOfIssue = new DataColumn("DateOfIssue", typeof(DateTime));
+            DataColumn userDateOfReturn = new DataColumn("DateOfReturn", typeof(DateTime));
+
+            readers.Columns.Add(userIdColumn);
+            readers.Columns.Add(userFullName);
+            readers.Columns.Add(userAddress);
+            readers.Columns.Add(userPhoneNumber);
+            readers.Columns.Add(userBookID);
+            readers.Columns.Add(userDateOfIssue);
+            readers.Columns.Add(userDateOfReturn);
+
             InitializeComponent();
             dataGridOutTable_DAA.DataSource = books;
-            openFileDialogOpenTable_DAA.InitialDirectory = System.IO.Path.Combine(Application.ExecutablePath, "Resources");
-            saveFileDialogSaveTable_DAA.InitialDirectory = System.IO.Path.Combine(Application.ExecutablePath, "Resources");
         }
 
-        private void toolStripMenuItemOpenFile_DAA_Click(object sender, EventArgs e)
-        {
-            books.Rows.Clear();
-            StreamReader reader = new StreamReader("Resources\\DB.csv");
-            string[] line;
-            for (int i = 0; i < System.IO.File.ReadAllLines("Resources\\DB.csv").Length; i++)
-            {
-                line = reader.ReadLine().Split('|');
-                for (int j = 0; j < 6; j++)
-                {
-                    if (line[j] == "")
-                        line[j] = null;
-                }
-                books.Rows.Add(new object[] { null, line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
-            }
-            reader.Close();
-        }
 
         private void dataGridOutTable_DAA_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPressInt);
-            if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 3)
-            {
-                TextBox textBox = e.Control as TextBox;
-                if (textBox != null)
-                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressInt);
-            }
-            if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 4)
-            {
-                TextBox textBox = e.Control as TextBox;
-                if (textBox != null)
-                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressDouble);
-            }
-            if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 0)
-            {
-                TextBox textBox = e.Control as TextBox;
-                if (textBox != null)
-                    textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressNone);
-            }
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPressDouble);
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPressLetterOrDigit);
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPressLetter);
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPressNone);
 
+            if (dataGridOutTable_DAA.DataSource == books)
+            {
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 3)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressInt);
+                }
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 1)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressLetter);
+                }
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 4)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressDouble);
+                }
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 0)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressNone);
+                }
+            }
+            else 
+            {
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex >= 5)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressDouble);
+                }
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 3 || dataGridOutTable_DAA.CurrentCell.ColumnIndex == 4|| dataGridOutTable_DAA.CurrentCell.ColumnIndex == 0)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressInt);
+                }
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 2)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressLetterOrDigit);
+                }
+                if (dataGridOutTable_DAA.CurrentCell.ColumnIndex == 1)
+                {
+                    TextBox textBox = e.Control as TextBox;
+                    if (textBox != null)
+                        textBox.KeyPress += new KeyPressEventHandler(Column_KeyPressLetter);
+                }
+            }
         }
         private void Column_KeyPressInt(object sender, KeyPressEventArgs e)
         {
@@ -85,6 +126,16 @@ namespace Tyuiu.DarychevAA.Task1.V4
         private void Column_KeyPressDouble(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar == ','))
+                e.Handled = true;
+        }
+        private void Column_KeyPressLetter(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !(e.KeyChar == '.') && (!char.IsWhiteSpace(e.KeyChar)))
+                e.Handled = true;
+        }
+        private void Column_KeyPressLetterOrDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && !(e.KeyChar == '.')&&(!char.IsWhiteSpace(e.KeyChar)))
                 e.Handled = true;
         }
         private void Column_KeyPressNone(object sender, KeyPressEventArgs e)
@@ -101,15 +152,19 @@ namespace Tyuiu.DarychevAA.Task1.V4
         private void toolStripButtonRefreshTable_DAA_Click(object sender, EventArgs e)
         {
             books.DefaultView.RowFilter = "";
+            readers.DefaultView.RowFilter = "";
         }
 
         private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
         {
-            books.DefaultView.RowFilter = $"Title LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
+            if (dataGridOutTable_DAA.DataSource == books)
+                books.DefaultView.RowFilter = $"Title LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
+            else
+                readers.DefaultView.RowFilter = $"Full name Like '%{toolStripTextBoxSearch_DAA.Text}%' OR CONVERT(BookId, System.String) LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR PhoneNumber Like '%{toolStripTextBoxSearch_DAA.Text}%'";
         }
         private void UpdateStatusStripText()
         {
-            if (dataGridOutTable_DAA.SelectedRows.Count == 0)
+            if (dataGridOutTable_DAA.SelectedRows.Count == 0 || dataGridOutTable_DAA.DataSource==readers)
             {
                 return;
             }
@@ -148,40 +203,102 @@ namespace Tyuiu.DarychevAA.Task1.V4
 
         private void toolStripButtonSave_DAA_Click(object sender, EventArgs e)
         {
+            saveFileDialogSaveTable_DAA.InitialDirectory = System.IO.Path.Combine(Application.StartupPath, @"Resources\");
             if (saveFileDialogSaveTable_DAA.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = saveFileDialogSaveTable_DAA.FileName;
             StreamWriter writer = new StreamWriter(filename);
-            foreach (DataRow r in books.Rows)
+
+            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = "dd,MM,yyyy";
+            culture.DateTimeFormat.LongTimePattern = "";
+            Thread.CurrentThread.CurrentCulture = culture;
+
+            if (dataGridOutTable_DAA.DataSource == books)
             {
-                foreach (var cell in r.ItemArray)
+                writer.WriteLine("BOOKS");
+                foreach (DataRow r in books.Rows)
                 {
-                    writer.Write(cell + "|");
+                    foreach (var cell in r.ItemArray)
+                    {
+                        writer.Write(cell + "|");
+                    }
+                    writer.WriteLine();
                 }
-                writer.WriteLine();
+            }             
+            else
+            {
+                writer.WriteLine("READERS");
+                foreach (DataRow r in readers.Rows)
+                {
+                    foreach (var cell in r.ItemArray)
+                    {
+                        writer.Write(cell + "|");
+                    }
+                    writer.WriteLine();
+                }
             }
             writer.Close();
         }
 
         private void toolStripButtonOpenFile_DAA_Click(object sender, EventArgs e)
         {
+            openFileDialogOpenTable_DAA.InitialDirectory = System.IO.Path.Combine(Application.StartupPath,@"Resources\");
             if (openFileDialogOpenTable_DAA.ShowDialog() == DialogResult.Cancel)
                 return;
-            books.Rows.Clear();
             string filename = openFileDialogOpenTable_DAA.FileName;
             StreamReader reader = new StreamReader(filename);
+            string fileType = reader.ReadLine();
             string[] line;
-            for (int i = 0; i < System.IO.File.ReadAllLines(filename).Length; i++)
+            if (fileType=="BOOKS")
             {
-                line = reader.ReadLine().Split('|');
-                for (int j = 0; j < 6; j++)
+                books.Rows.Clear();
+                for (int i = 0; i < System.IO.File.ReadAllLines(filename).Length-1; i++)
                 {
-                    if (line[j] == "")
-                        line[j] = null;
+                    line = reader.ReadLine().Split('|');
+                    for (int j = 0; j < 6; j++)
+                    {
+                        if (line[j] == "")
+                            line[j] = null;
+                    }
+                    books.Rows.Add(new object[] { Convert.ToInt32(line[0]), line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
                 }
-                books.Rows.Add(new object[] { Convert.ToInt32(line[0]), line[1], line[2], Convert.ToInt32(line[3]), Convert.ToDouble(line[4]), Convert.ToBoolean(line[5]), line[6] });
+                reader.Close();
             }
-            reader.Close();
+            else
+            {
+                readers.Rows.Clear();
+                for (int i = 0; i < System.IO.File.ReadAllLines(filename).Length-1; i++)
+                {
+                    line = reader.ReadLine().Split('|');
+                    for (int j = 0; j < 6; j++)
+                    {
+                        if (line[j] == "")
+                            line[j] = null;
+                    }
+                    line[5] = line[5].Replace(" ", "");
+                    line[6] = line[6].Replace(" ", "");
+                    if (line[6]=="")
+                        readers.Rows.Add(new object[] { Convert.ToInt32(line[0]), line[1], line[2], line[3], Convert.ToInt32(line[4]), Convert.ToDateTime(line[5]) });
+                    else
+                        readers.Rows.Add(new object[] { Convert.ToInt32(line[0]), line[1], line[2], line[3], Convert.ToInt32(line[4]), Convert.ToDateTime(line[5]), Convert.ToDateTime(line[6]) });
+
+                }
+                reader.Close();
+            } 
         }
+        private void buttonChangeToBooks_DAA_Click(object sender, EventArgs e)
+        {
+            dataGridOutTable_DAA.DataSource = books;
+            buttonChangeToBooks_DAA.BackColor = SystemColors.ControlLightLight;
+            buttonChangeToReaders.BackColor = SystemColors.Control;
+        }
+
+        private void buttonChangeToReaders_Click(object sender, EventArgs e)
+        {
+            dataGridOutTable_DAA.DataSource = readers;
+            buttonChangeToBooks_DAA.BackColor = SystemColors.Control;
+            buttonChangeToReaders.BackColor = SystemColors.ControlLightLight;
+        }  
     }
 }

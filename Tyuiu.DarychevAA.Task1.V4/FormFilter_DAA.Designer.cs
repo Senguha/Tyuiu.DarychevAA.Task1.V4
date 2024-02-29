@@ -28,108 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxFilterAttribite_DAA = new System.Windows.Forms.ComboBox();
-            this.textBoxFilterValue_DAA = new System.Windows.Forms.TextBox();
-            this.buttonFilterTable_DAA = new System.Windows.Forms.Button();
-            this.comboBoxFilterColumn_DAA = new System.Windows.Forms.ComboBox();
-            this.labelSelectedColumn_DAA = new System.Windows.Forms.Label();
-            this.labelSelectedOperand_DAA = new System.Windows.Forms.Label();
-            this.labelFilterValue_DAA = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            comboBoxFilterAttribite_DAA = new ComboBox();
+            textBoxFilterValue_DAA = new TextBox();
+            buttonFilterTable_DAA = new Button();
+            comboBoxFilterColumn_DAA = new ComboBox();
+            labelSelectedColumn_DAA = new Label();
+            labelSelectedOperand_DAA = new Label();
+            labelFilterValue_DAA = new Label();
+            buttonShowReturnedBooks_DAA = new Button();
+            SuspendLayout();
             // 
             // comboBoxFilterAttribite_DAA
             // 
-            this.comboBoxFilterAttribite_DAA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilterAttribite_DAA.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBoxFilterAttribite_DAA.FormattingEnabled = true;
-            this.comboBoxFilterAttribite_DAA.Items.AddRange(new object[] {
-            ">",
-            "<",
-            "="});
-            this.comboBoxFilterAttribite_DAA.Location = new System.Drawing.Point(116, 52);
-            this.comboBoxFilterAttribite_DAA.Name = "comboBoxFilterAttribite_DAA";
-            this.comboBoxFilterAttribite_DAA.Size = new System.Drawing.Size(95, 23);
-            this.comboBoxFilterAttribite_DAA.TabIndex = 0;
+            comboBoxFilterAttribite_DAA.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilterAttribite_DAA.FlatStyle = FlatStyle.System;
+            comboBoxFilterAttribite_DAA.FormattingEnabled = true;
+            comboBoxFilterAttribite_DAA.Items.AddRange(new object[] { ">", "<", "=" });
+            comboBoxFilterAttribite_DAA.Location = new Point(116, 52);
+            comboBoxFilterAttribite_DAA.Name = "comboBoxFilterAttribite_DAA";
+            comboBoxFilterAttribite_DAA.Size = new Size(95, 23);
+            comboBoxFilterAttribite_DAA.TabIndex = 0;
             // 
             // textBoxFilterValue_DAA
             // 
-            this.textBoxFilterValue_DAA.Location = new System.Drawing.Point(252, 52);
-            this.textBoxFilterValue_DAA.Name = "textBoxFilterValue_DAA";
-            this.textBoxFilterValue_DAA.Size = new System.Drawing.Size(127, 23);
-            this.textBoxFilterValue_DAA.TabIndex = 1;
+            textBoxFilterValue_DAA.Location = new Point(252, 52);
+            textBoxFilterValue_DAA.Name = "textBoxFilterValue_DAA";
+            textBoxFilterValue_DAA.Size = new Size(127, 23);
+            textBoxFilterValue_DAA.TabIndex = 1;
             // 
             // buttonFilterTable_DAA
             // 
-            this.buttonFilterTable_DAA.Location = new System.Drawing.Point(304, 99);
-            this.buttonFilterTable_DAA.Name = "buttonFilterTable_DAA";
-            this.buttonFilterTable_DAA.Size = new System.Drawing.Size(75, 23);
-            this.buttonFilterTable_DAA.TabIndex = 2;
-            this.buttonFilterTable_DAA.Text = "Filter";
-            this.buttonFilterTable_DAA.UseVisualStyleBackColor = true;
-            this.buttonFilterTable_DAA.Click += new System.EventHandler(this.button1_Click);
+            buttonFilterTable_DAA.Location = new Point(304, 99);
+            buttonFilterTable_DAA.Name = "buttonFilterTable_DAA";
+            buttonFilterTable_DAA.Size = new Size(75, 23);
+            buttonFilterTable_DAA.TabIndex = 2;
+            buttonFilterTable_DAA.Text = "Filter";
+            buttonFilterTable_DAA.UseVisualStyleBackColor = true;
+            buttonFilterTable_DAA.Click += button1_Click;
             // 
             // comboBoxFilterColumn_DAA
             // 
-            this.comboBoxFilterColumn_DAA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilterColumn_DAA.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBoxFilterColumn_DAA.FormattingEnabled = true;
-            this.comboBoxFilterColumn_DAA.Items.AddRange(new object[] {
-            "Year",
-            "Price"});
-            this.comboBoxFilterColumn_DAA.Location = new System.Drawing.Point(12, 52);
-            this.comboBoxFilterColumn_DAA.Name = "comboBoxFilterColumn_DAA";
-            this.comboBoxFilterColumn_DAA.Size = new System.Drawing.Size(95, 23);
-            this.comboBoxFilterColumn_DAA.TabIndex = 0;
+            comboBoxFilterColumn_DAA.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFilterColumn_DAA.FlatStyle = FlatStyle.System;
+            comboBoxFilterColumn_DAA.FormattingEnabled = true;
+            comboBoxFilterColumn_DAA.Items.AddRange(new object[] { "Year", "Price" });
+            comboBoxFilterColumn_DAA.Location = new Point(12, 52);
+            comboBoxFilterColumn_DAA.Name = "comboBoxFilterColumn_DAA";
+            comboBoxFilterColumn_DAA.Size = new Size(95, 23);
+            comboBoxFilterColumn_DAA.TabIndex = 0;
             // 
             // labelSelectedColumn_DAA
             // 
-            this.labelSelectedColumn_DAA.AutoSize = true;
-            this.labelSelectedColumn_DAA.Location = new System.Drawing.Point(12, 34);
-            this.labelSelectedColumn_DAA.Name = "labelSelectedColumn_DAA";
-            this.labelSelectedColumn_DAA.Size = new System.Drawing.Size(95, 15);
-            this.labelSelectedColumn_DAA.TabIndex = 3;
-            this.labelSelectedColumn_DAA.Text = "Selected column";
+            labelSelectedColumn_DAA.AutoSize = true;
+            labelSelectedColumn_DAA.Location = new Point(12, 34);
+            labelSelectedColumn_DAA.Name = "labelSelectedColumn_DAA";
+            labelSelectedColumn_DAA.Size = new Size(95, 15);
+            labelSelectedColumn_DAA.TabIndex = 3;
+            labelSelectedColumn_DAA.Text = "Selected column";
             // 
             // labelSelectedOperand_DAA
             // 
-            this.labelSelectedOperand_DAA.AutoSize = true;
-            this.labelSelectedOperand_DAA.Location = new System.Drawing.Point(116, 34);
-            this.labelSelectedOperand_DAA.Name = "labelSelectedOperand_DAA";
-            this.labelSelectedOperand_DAA.Size = new System.Drawing.Size(98, 15);
-            this.labelSelectedOperand_DAA.TabIndex = 3;
-            this.labelSelectedOperand_DAA.Text = "Selected operand";
+            labelSelectedOperand_DAA.AutoSize = true;
+            labelSelectedOperand_DAA.Location = new Point(116, 34);
+            labelSelectedOperand_DAA.Name = "labelSelectedOperand_DAA";
+            labelSelectedOperand_DAA.Size = new Size(98, 15);
+            labelSelectedOperand_DAA.TabIndex = 3;
+            labelSelectedOperand_DAA.Text = "Selected operand";
             // 
             // labelFilterValue_DAA
             // 
-            this.labelFilterValue_DAA.AutoSize = true;
-            this.labelFilterValue_DAA.Location = new System.Drawing.Point(252, 34);
-            this.labelFilterValue_DAA.Name = "labelFilterValue_DAA";
-            this.labelFilterValue_DAA.Size = new System.Drawing.Size(64, 15);
-            this.labelFilterValue_DAA.TabIndex = 3;
-            this.labelFilterValue_DAA.Text = "Filter value";
+            labelFilterValue_DAA.AutoSize = true;
+            labelFilterValue_DAA.Location = new Point(252, 34);
+            labelFilterValue_DAA.Name = "labelFilterValue_DAA";
+            labelFilterValue_DAA.Size = new Size(64, 15);
+            labelFilterValue_DAA.TabIndex = 3;
+            labelFilterValue_DAA.Text = "Filter value";
+            // 
+            // buttonShowReturnedBooks_DAA
+            // 
+            buttonShowReturnedBooks_DAA.Location = new Point(184, 99);
+            buttonShowReturnedBooks_DAA.Name = "buttonShowReturnedBooks_DAA";
+            buttonShowReturnedBooks_DAA.Size = new Size(114, 23);
+            buttonShowReturnedBooks_DAA.TabIndex = 4;
+            buttonShowReturnedBooks_DAA.Text = "Returned books";
+            buttonShowReturnedBooks_DAA.UseVisualStyleBackColor = true;
+            buttonShowReturnedBooks_DAA.Click += buttonShowReturnedBooks_DAA_Click;
             // 
             // FormFilter_DAA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 134);
-            this.Controls.Add(this.labelFilterValue_DAA);
-            this.Controls.Add(this.labelSelectedOperand_DAA);
-            this.Controls.Add(this.labelSelectedColumn_DAA);
-            this.Controls.Add(this.buttonFilterTable_DAA);
-            this.Controls.Add(this.textBoxFilterValue_DAA);
-            this.Controls.Add(this.comboBoxFilterColumn_DAA);
-            this.Controls.Add(this.comboBoxFilterAttribite_DAA);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "FormFilter_DAA";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "Filter";
-            this.TopMost = true;
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(396, 134);
+            Controls.Add(buttonShowReturnedBooks_DAA);
+            Controls.Add(labelFilterValue_DAA);
+            Controls.Add(labelSelectedOperand_DAA);
+            Controls.Add(labelSelectedColumn_DAA);
+            Controls.Add(buttonFilterTable_DAA);
+            Controls.Add(textBoxFilterValue_DAA);
+            Controls.Add(comboBoxFilterColumn_DAA);
+            Controls.Add(comboBoxFilterAttribite_DAA);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "FormFilter_DAA";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            Text = "Filter";
+            TopMost = true;
+            Load += FormFilter_DAA_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -141,5 +148,6 @@
         private Label labelSelectedColumn_DAA;
         private Label labelSelectedOperand_DAA;
         private Label labelFilterValue_DAA;
+        private Button buttonShowReturnedBooks_DAA;
     }
 }

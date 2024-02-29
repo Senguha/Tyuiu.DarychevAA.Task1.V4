@@ -10,17 +10,21 @@
 
   <ItemGroup>
     <None Remove="Resources\1491254488-chartflexibledatestatstatistics_82950.png" />
-    <None Remove="Resources\DB.csv" />
+    <None Remove="Resources\Books.csv" />
     <None Remove="Resources\filter_icon-icons.com_64590.png" />
+    <None Remove="Resources\Readers.csv" />
     <None Remove="Resources\twocirclingarrows1_120592.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\1491254488-chartflexibledatestatstatistics_82950.png" />
-    <EmbeddedResource Include="Resources\DB.csv">
+    <EmbeddedResource Include="Resources\Books.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\filter_icon-icons.com_64590.png" />
+    <EmbeddedResource Include="Resources\Readers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\twocirclingarrows1_120592.png" />
   </ItemGroup>
 
@@ -45,7 +49,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Debug\net6.0-windows\" />
+    <None Include="bin\Debug\net6.0-windows\Resources\Books.csv" />
+    <None Include="bin\Debug\net6.0-windows\Resources\Readers.csv" />
   </ItemGroup>
 
   <ItemGroup>

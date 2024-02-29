@@ -71,18 +71,15 @@ namespace Tyuiu.DarychevAA.Task1.V4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то|
-        ///3|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то|
-        ///4|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то|
-        ///5|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то|
-        ///6|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то|
-        ///7|Антонов А.А|КнижкаF|2013|20,15|True|Книжка о чём-то аааааааааааааааааааааааааааааааааа|
-        ///8|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то аааааааааааааааааааааааааааааааааа|
-        ///9|Антонов А.А|Книжка|2013|20,15|True|Книжка о чём-то ааа [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to BOOKS
+        ///1|Оскар Уайльд|Портрет Дориана Грея|2022|219|True|&quot;&quot;&quot;Портрет Дориана Грея&quot;&quot; — самое знаменитое произведение Оскара Уайльда, единственный его роман, вызвавший в свое время шквал негативных оценок и тем не менее имевший невероятный успех.&quot;|
+        ///2|Фрэнсис Ходжсон Бёрнетт|Таинственный сад|2022|269|True|В центре романа «Таинственный сад» – десятилетняя Мери Леннокс, вернувшаяся из Индии в Англию после смерти родителей. |
+        ///3|Джейн Остен|Гордость и предубеждение|2022|229|True||
+        ///4|Эмили Джейн Бронте|Грозовой п [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string DB {
+        internal static string Books {
             get {
-                return ResourceManager.GetString("DB", resourceCulture);
+                return ResourceManager.GetString("Books", resourceCulture);
             }
         }
         
@@ -103,6 +100,23 @@ namespace Tyuiu.DarychevAA.Task1.V4.Properties {
             get {
                 object obj = ResourceManager.GetObject("filter_icon_icons_com_64590", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to READERS
+        ///1|Смирнов А.А.|Мельникайте 13 кв 23|79129239415|2|23,12,2023 ||
+        ///1|Смирнов А.А|Мельникайте 13 кв 23|79129239415|6|12,10,2023 |12,11,2023 |
+        ///2|Попов А.Б|Малыгина 13 кв 1|79131254511|6|01,12,2023 ||
+        ///3|Сидорова В.Е|Широтная 1 кв 149|79123131541|13|01,03,2024 ||
+        ///3|Сидорова В.Е|Широтная 1 кв 149|79123131541|30|01,03,2024 ||
+        ///3|Сидорова В.Е|Широтная 1 кв 149|79123131541|29|10,02,2024 ||
+        ///4|Малышкина А.Ф.|Республики 152 кв 13|79571751512|15|15,11,2023 |15,11,2023 |
+        ///4|Малышкина А.Ф.|Республики 152 кв 13 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Readers {
+            get {
+                return ResourceManager.GetString("Readers", resourceCulture);
             }
         }
         
