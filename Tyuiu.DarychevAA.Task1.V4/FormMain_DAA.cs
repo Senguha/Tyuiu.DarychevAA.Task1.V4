@@ -35,7 +35,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
             books.Columns.Add(anotationColumn);
 
             DataColumn userIdColumn = new DataColumn("Id", typeof(int));
-            DataColumn userFullName = new DataColumn("Full name", typeof(string));
+            DataColumn userFullName = new DataColumn("FullName", typeof(string));
             DataColumn userAddress = new DataColumn("Address", typeof(string));
             DataColumn userPhoneNumber = new DataColumn("PhoneNumber", typeof(string));
             DataColumn userBookID = new DataColumn("BookId", typeof(int));
@@ -160,7 +160,7 @@ namespace Tyuiu.DarychevAA.Task1.V4
             if (dataGridOutTable_DAA.DataSource == books)
                 books.DefaultView.RowFilter = $"Title LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR Author LIKE '%{toolStripTextBoxSearch_DAA.Text}%'";
             else
-                readers.DefaultView.RowFilter = $"Full name Like '%{toolStripTextBoxSearch_DAA.Text}%' OR CONVERT(BookId, System.String) LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR PhoneNumber Like '%{toolStripTextBoxSearch_DAA.Text}%'";
+                readers.DefaultView.RowFilter = $"FullName Like '%{toolStripTextBoxSearch_DAA.Text}%' OR CONVERT(BookId, System.String) LIKE '%{toolStripTextBoxSearch_DAA.Text}%' OR PhoneNumber Like '%{toolStripTextBoxSearch_DAA.Text}%'";
         }
         private void UpdateStatusStripText()
         {
